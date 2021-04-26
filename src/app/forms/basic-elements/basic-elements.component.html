@@ -8,101 +8,56 @@
     <div class="card">
       <div class="card-body">
         
-        <form class="forms-sample">
+        <form  class="forms-sample" #userForm="ngForm" >
+
+          {{userForm.value | json}}
+          <hr/>
+          {{userModel | json}}
           <div class="form-group row">
-            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Email</label>
+            <label for="topic" class="col-sm-3 col-form-label">Topic</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Username">
+              <select class="form-control form-control-sm" id="exampleFormControlSelect3" name="topic" [(ngModel)]="userModel.topic">
+                <option value="">Select topics</option>
+                <option *ngFor="let i of topics">{{i}}</option>
+                
+              </select>
             </div>
           </div>
           <div class="form-group row">
-            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
+            <label for="topic" class="col-sm-3 col-form-label">Product</label>
             <div class="col-sm-9">
-              <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
+              <select class="form-control form-control-sm" id="exampleFormControlSelect3" name="product" [(ngModel)]="userModel.product">
+                <option value="">Select Products</option>
+                <option *ngFor="let i of products">{{i}}</option>
+                
+              </select>
             </div>
           </div>
           <div class="form-group row">
-            <label for="exampleInputMobile" class="col-sm-3 col-form-label">Mobile</label>
+            <label for="topic" class="col-sm-3 col-form-label">Questions</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="exampleInputMobile" placeholder="Mobile number">
+              <select class="form-control form-control-sm" id="exampleFormControlSelect3" name="question" [(ngModel)]="userModel.question">
+                <option value="">Select questions</option>
+                <option *ngFor="let i of questions">{{i}}</option>
+                
+              </select>
             </div>
           </div>
           <div class="form-group row">
-            <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
+            <label for="topic" class="col-sm-3 col-form-label">Title</label>
             <div class="col-sm-9">
-              <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+            
+              <input type="text" class="form-control" id="exampleInputCity1" placeholder="Add Title" name="title" [(ngModel)]="userModel.title">
             </div>
           </div>
           <div class="form-group row">
-            <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Re Password</label>
+            <label for="topic" class="col-sm-3 col-form-label">Additional Informations</label>
             <div class="col-sm-9">
-              <input type="password" class="form-control" id="exampleInputConfirmPassword2" placeholder="Password">
+             
+              <textarea class="form-control" id="exampleTextarea1" rows="4" name="content" [(ngModel)]="userModel.content"></textarea>
             </div>
           </div>
-          <p><b>Select required documents to be uploded by the employee</b></p>
-          <div class="form-group row">
-         
-              <div class="col-md-6">
-                <div class="form-check">
-             <label class="form-check-label">
-              <input type="checkbox" class="form-check-input">
-              Adhar
-              <i class="input-helper"></i>
-            </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                 <input type="checkbox" class="form-check-input">
-                 Passport
-                 <i class="input-helper"></i>
-               </label>
-                 </div>
-                 <div class="form-check">
-                  <label class="form-check-label">
-                   <input type="checkbox" class="form-check-input">
-                   Driving license
-                   <i class="input-helper"></i>
-                 </label>
-                   </div>
-                   <div class="form-check">
-                    <label class="form-check-label">
-                     <input type="checkbox" class="form-check-input">
-                     Insurance
-                     <i class="input-helper"></i>
-                   </label>
-                     </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-check">
-                <label class="form-check-label">
-                 <input type="checkbox" class="form-check-input">
-                 Medical certificate
-                 <i class="input-helper"></i>
-               </label>
-                 </div>
-                 <div class="form-check">
-                  <label class="form-check-label">
-                   <input type="checkbox" class="form-check-input">
-                   NDA
-                   <i class="input-helper"></i>
-                 </label>
-                   </div>
-                   <div class="form-check">
-                    <label class="form-check-label">
-                     <input type="checkbox" class="form-check-input">
-                     Experience certificate
-                     <i class="input-helper"></i>
-                   </label>
-                     </div>
-                     <div class="form-check">
-                      <label class="form-check-label">
-                       <input type="checkbox" class="form-check-input">
-                       Others
-                       <i class="input-helper"></i>
-                     </label>
-                       </div>
-          </div>
-          </div>
+          
           <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
           <button class="btn btn-light">Cancel</button>
         </form> 
