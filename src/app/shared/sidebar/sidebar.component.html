@@ -1,0 +1,46 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <li class="nav-item nav-profile">
+      <a href="javascript:;" class="nav-link">
+        <div class="nav-profile-image">
+          <img _ngcontent-gie-c105="" src="assets/images/logo.png" alt="profile" style="margin-top: 432px;height: 231px;width: 211px; margin-left: -31px;">
+        </div>
+       
+        
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }">
+      <a class="nav-link" routerLink="/dashboard" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">Dashboard</span>
+        <i class="mdi mdi-home menu-icon"></i>
+      </a>
+    </li>
+   
+    <li class="nav-item" [ngClass]="{ 'active': forms.isActive }">
+      <a class="nav-link" routerLink="forms/basic-elements" routerLinkActive #forms="routerLinkActive">
+        <span class="menu-title">Add new employee</span>
+        <i class="mdi mdi-account-plus menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': charts.isActive }">
+      <a class="nav-link" routerLink="charts/chartjs" routerLinkActive #charts="routerLinkActive">
+        <span class="menu-title">Verify Employees</span>
+        <i class="mdi mdi-account-search menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': tables.isActive }">
+      <a class="nav-link" routerLink="tables/basic-table" routerLinkActive #tables="routerLinkActive">
+        <span class="menu-title">View Employees</span>
+        <i class="mdi mdi-account-box menu-icon"></i>
+      </a>
+    </li>
+    
+    <li>
+      <div >
+        <img src="assets/images/logo.png ">
+                 
+      </div>
+     
+    </li>
+  </ul>
+</nav>
