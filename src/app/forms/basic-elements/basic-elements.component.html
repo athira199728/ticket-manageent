@@ -1,7 +1,4 @@
-<div class="page-header">
-  <h3 class="page-title">
-    Add new employee  </h3>
-</div>
+
 
 <div class="row">
   <div class="col-md-12 grid-margin stretch-card">
@@ -10,51 +7,60 @@
         
         <form  class="forms-sample" #userForm="ngForm" >
 
-          {{userForm.value | json}}
-          <hr/>
-          {{userModel | json}}
+         
           <div class="form-group row">
             <label for="topic" class="col-sm-3 col-form-label">Topic</label>
             <div class="col-sm-9">
-              <select class="form-control form-control-sm" id="exampleFormControlSelect3" name="topic" [(ngModel)]="userModel.topic">
-                <option value="">Select topics</option>
+              <select (blur)="validateTopic(name.value)" (change)="validateTopic(name.value)" class="form-control form-control-sm" id="exampleFormControlSelect3" name="topic"  #name="ngModel" [class.is-invalid]="TopicHasError && name.touched"
+              [(ngModel)]="userModel.topic">
+                <option value="default">Select topics</option>
                 <option *ngFor="let i of topics">{{i}}</option>
                 
               </select>
+              <small class="text-danger" [class.d-none]="!TopicHasError || name.untouched">Topic is required</small>
             </div>
           </div>
+        
           <div class="form-group row">
             <label for="topic" class="col-sm-3 col-form-label">Product</label>
             <div class="col-sm-9">
-              <select class="form-control form-control-sm" id="exampleFormControlSelect3" name="product" [(ngModel)]="userModel.product">
-                <option value="">Select Products</option>
+              <select (blur)="validateProduct(pro.value)" (change)="validateProduct(pro.value)" class="form-control form-control-sm" required id="exampleFormControlSelect3" name="product"  #pro="ngModel" [class.is-invalid]="ProductHasError && pro.touched"
+               [(ngModel)]="userModel.product">
+                <option value="default">Select Products</option>
                 <option *ngFor="let i of products">{{i}}</option>
                 
               </select>
+              <small class="text-danger" [class.d-none]="!ProductHasError || pro.untouched">Product is required</small>
             </div>
           </div>
           <div class="form-group row">
             <label for="topic" class="col-sm-3 col-form-label">Questions</label>
             <div class="col-sm-9">
-              <select class="form-control form-control-sm" id="exampleFormControlSelect3" name="question" [(ngModel)]="userModel.question">
-                <option value="">Select questions</option>
+              <select (blur)="validateQuestion(qn.value)" (change)="validateQuestion(qn.value)" class="form-control form-control-sm" id="exampleFormControlSelect3" name="question" required #qn="ngModel" [class.is-invalid]="QuestionHasError && qn.touched"
+              [(ngModel)]="userModel.question">
+                <option value="default">Select questions</option>
                 <option *ngFor="let i of questions">{{i}}</option>
                 
               </select>
+              <small class="text-danger" [class.d-none]="!QuestionHasError || qn.untouched">Question is required</small>
             </div>
           </div>
           <div class="form-group row">
             <label for="topic" class="col-sm-3 col-form-label">Title</label>
             <div class="col-sm-9">
             
-              <input type="text" class="form-control" id="exampleInputCity1" placeholder="Add Title" name="title" [(ngModel)]="userModel.title">
+              <input type="text" class="form-control" id="exampleInputCity1" placeholder="Add Title" name="title" required #tit="ngModel" [class.is-invalid]="tit.invalid && tit.touched"
+              [(ngModel)]="userModel.title">
+              <small class="text-danger" [class.d-none]="tit.valid || tit.untouched">Title is required</small>
             </div>
           </div>
           <div class="form-group row">
             <label for="topic" class="col-sm-3 col-form-label">Additional Informations</label>
             <div class="col-sm-9">
              
-              <textarea class="form-control" id="exampleTextarea1" rows="4" name="content" [(ngModel)]="userModel.content"></textarea>
+              <textarea class="form-control" id="exampleTextarea1" rows="4" name="content" required #con="ngModel" [class.is-invalid]="con.invalid && con.touched"
+               [(ngModel)]="userModel.content"></textarea>
+               <small class="text-danger" [class.d-none]="con.valid || con.untouched">Additional Informations is required</small>
             </div>
           </div>
           
